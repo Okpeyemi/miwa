@@ -97,7 +97,7 @@ const Feature108 = ({
               <TabsTrigger
                 key={tab.value}
                 value={tab.value}
-                className="flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold text-muted-foreground data-[state=active]:bg-miwa-teal/10 data-[state=active]:text-miwa-blue data-[state=active]:border data-[state=active]:border-miwa-teal/20 w-full sm:w-auto transition-all duration-200"
+                className="flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold text-muted-foreground data-[state=active]:bg-miwa-teal/10 data-[state=active]:text-miwa-blue data-[state=active]:border data-[state=active]:border-miwa-teal/20 w-full sm:w-auto transition-all duration-200 cursor-pointer"
               >
                 {tab.icon} <span className="hidden sm:inline">{tab.label}</span>
                 <span className="sm:hidden">{tab.label.split(" ")[0]}</span>
@@ -122,9 +122,9 @@ const Feature108 = ({
                     {tab.content.title}
                   </h3>
                   <p className="text-muted-foreground text-sm sm:text-base lg:text-lg">{tab.content.description}</p>
-                  <Button className="mt-2.5 w-fit gap-2 mx-auto lg:mx-0 btn-miwa-gradient" size="lg">
+                  {/* <Button className="mt-2.5 w-fit gap-2 mx-auto lg:mx-0 btn-miwa-gradient cursor-pointer" size="lg">
                     {tab.content.buttonText}
-                  </Button>
+                  </Button> */}
                 </div>
                 <img
                   src={tab.content.imageSrc || "/placeholder.svg"}

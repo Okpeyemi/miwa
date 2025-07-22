@@ -16,6 +16,9 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# lock files (if you want to ignore npm lock - not recommended)
+/package-lock.json
+
 # env files
 .env*
 

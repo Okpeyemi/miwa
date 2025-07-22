@@ -42,13 +42,13 @@ function WaitlistSection() {
               placeholder="your.email@company.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 text-sm sm:text-base border-miwa-teal/20 focus:border-miwa-teal focus:ring-miwa-teal/20"
+              className="flex-1 text-sm sm:text-base border-miwa-teal/20 focus:border-miwa-teal focus:ring-miwa-teal/20 cursor-pointer"
               required
             />
             <Button
               type="submit"
               disabled={isSubmitted}
-              className="whitespace-nowrap text-sm sm:text-base btn-miwa-gradient"
+              className="whitespace-nowrap text-sm sm:text-base btn-miwa-gradient cursor-pointer"
             >
               {isSubmitted ? "Liste d'attente rejointe!" : "Rejoignez la liste d'attente"}
             </Button>
