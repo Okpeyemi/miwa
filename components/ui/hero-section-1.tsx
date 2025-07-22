@@ -104,7 +104,7 @@ export function HeroSection() {
                   <span className="text-miwa-gradient">L'expérience usager</span> autrement
                 </h1>
                 <p className="mx-auto mt-6 sm:mt-8 max-w-2xl text-balance text-base sm:text-lg text-muted-foreground px-4 sm:px-0">
-                  MIWA révolutionne l'expérience usager en réduisant les temps d'attente, en augmentant les revenus et en exploitant les données grâce à des solutions sur mesure.
+                  MIWA aide les entreprises accueillant un grand nombre d'usagers à gagner du temps et de l'argent grâce à des parcours usagers conçus sur mesure.
                 </p>
               </AnimatedGroup>
               <AnimatedGroup

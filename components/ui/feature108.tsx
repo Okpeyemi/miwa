@@ -92,15 +92,15 @@ const Feature108 = ({
           <p className="text-muted-foreground max-w-2xl px-4 sm:px-0">{description}</p>
         </div>
         <Tabs defaultValue={tabs[0].value} className="mt-8">
-          <TabsList className="container bg-transparent flex flex-col items-center justify-center gap-4 sm:flex-row md:gap-10 w-full max-w-none p-0">
+          <TabsList className="container bg-transparent flex flex-wrap items-center justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-10 w-full max-w-none p-0">
             {tabs.map((tab) => (
               <TabsTrigger
                 key={tab.value}
                 value={tab.value}
-                className="flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold text-muted-foreground data-[state=active]:bg-miwa-teal/10 data-[state=active]:text-miwa-blue data-[state=active]:border data-[state=active]:border-miwa-teal/20 w-full sm:w-auto transition-all duration-200 cursor-pointer"
+                className="flex items-center gap-2 rounded-xl px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-semibold text-muted-foreground data-[state=active]:bg-miwa-teal/10 data-[state=active]:text-miwa-blue data-[state=active]:border data-[state=active]:border-miwa-teal/20 flex-1 sm:flex-initial min-w-0 transition-all duration-200 cursor-pointer"
               >
-                {tab.icon} <span className="hidden sm:inline">{tab.label}</span>
-                <span className="sm:hidden">{tab.label.split(" ")[0]}</span>
+                {tab.icon} 
+                <span className="truncate">{tab.label}</span>
               </TabsTrigger>
             ))}
           </TabsList>

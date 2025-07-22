@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/ui/hero-section-1"
 import { Feature108 } from "@/components/ui/feature108"
 import { WaitlistSection } from "@/components/ui/waitlist-section"
 import { MiwaFooter } from "@/components/ui/miwa-footer"
+import { ClientsSection } from "@/components/ui/clients-section"
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Header />
       <HeroSection />
       <Feature108 />
+      <ClientsSection />
       <WaitlistSection />
       <MiwaFooter />
     </div>
