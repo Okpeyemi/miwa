@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 
 const menuItems = [
-  { name: "Acceuil", href: "/#home" },
+  { name: "Accueil", href: "/#home" },
   { name: "Fonctionnalités", href: "/#features" },
   { name: "Tarification", href: "/#pricing" },
   { name: "Contact", href: "/contact" },
