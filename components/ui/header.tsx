@@ -58,7 +58,7 @@ export function Header() {
                   <li key={index}>
                     <Link
                       href={item.href}
-                      className="text-muted-foreground hover:text-miwa-blue block duration-150 transition-colors font-medium"
+                      className="text-muted-foreground hover:text-miwa-blue block duration-150 transition-colors font-medium hover:underline hover:font-bold underline-offset-4 underline-2"
                       onClick={handleLinkClick}
                     >
                       <span>{item.name}</span>

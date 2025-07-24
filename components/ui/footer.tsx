@@ -63,7 +63,8 @@ export function Footer({ logo, brandName, socialLinks, mainLinks, legalLinks, co
                 <li key={i} className="my-1 mx-3 shrink-0">
                   <a
                     href={link.href}
-                    className="text-sm text-muted-foreground underline-offset-4 hover:underline transition-colors"
+                    className="text-sm text-muted-foreground duration-150 block underline-offset-4 hover:underline underline-2 transition-colors"
+
                   >
                     {link.label}
                   </a>
