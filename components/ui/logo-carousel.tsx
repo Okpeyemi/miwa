@@ -159,11 +159,15 @@ export function LogoCarousel({ columnCount = 2, logos }: LogoCarouselProps) {
           }
         }}
       >
-        <img 
-          src={logo.img} 
-          alt={logo.name}
-          className="h-full w-full object-contain filter transition-all duration-300"
-        />
+        {typeof logo.img === "string" ? (
+          <img 
+            src={logo.img as string} 
+            alt={logo.name}
+            className="h-full w-full object-contain filter transition-all duration-300"
+          />
+        ) : (
+          <logo.img className="h-full w-full object-contain filter transition-all duration-300" />
+        )}
       </motion.div>
     </div>
   )

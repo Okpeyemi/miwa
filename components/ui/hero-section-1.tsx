@@ -1,11 +1,12 @@
 "use client"
 
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import { ArrowRight, Menu, X } from "lucide-react"
 import { AnimatedGroup } from "@/components/ui/animated-group"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { motion, AnimatePresence } from "framer-motion"
 
 const transitionVariants = {
   item: {
@@ -25,6 +26,97 @@ const transitionVariants = {
       },
     },
   },
+}
+
+// Images du carrousel
+const carouselImages = [
+  {
+    src: "dashboard.jpg",
+    alt: "Tableau de bord présentant les analyses et la gestion des utilisateurs",
+    title: "Dashboard Analytics"
+  },
+  {
+    src: "interface.jpg", // Remplacez par votre deuxième image
+    alt: "Interface de gestion des parcours usagers MIWA",
+    title: "Gestion des parcours"
+  }
+]
+
+const ImageCarousel = () => {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => 
+        prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1
+      )
+    }, 4000) // Change d'image toutes les 4 secondes
+
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <div className="relative">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentIndex}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -50 }}
+          transition={{
+            duration: 0.8,
+            ease: "easeInOut"
+          }}
+          className="inset-shadow-2xs ring-background dark:inset-shadow-white/20 bg-background relative mx-auto max-w-6xl overflow-hidden rounded-xl sm:rounded-2xl border border-miwa-teal/20 p-2 sm:p-4 shadow-lg shadow-miwa-blue/10 ring-1"
+        >
+          <img
+            className="bg-background aspect-[15/8] relative hidden rounded-xl sm:rounded-2xl dark:block w-full"
+            src={carouselImages[currentIndex].src}
+            alt={carouselImages[currentIndex].alt}
+            width="2700"
+            height="1440"
+          />
+          <img
+            className="z-2 border-miwa-teal/25 aspect-[15/8] relative rounded-xl sm:rounded-2xl border dark:hidden w-full"
+            src={carouselImages[currentIndex].src}
+            alt={carouselImages[currentIndex].alt}
+            width="2700"
+            height="1440"
+          />
+        </motion.div>
+      </AnimatePresence>
+      
+      {/* Indicateurs de pagination */}
+      <div className="flex justify-center mt-4 space-x-2">
+        {carouselImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={cn(
+              "w-2 h-2 rounded-full transition-all duration-300",
+              index === currentIndex 
+                ? "bg-miwa-blue w-6" 
+                : "bg-miwa-blue/30 hover:bg-miwa-blue/50"
+            )}
+            aria-label={`Aller à l'image ${index + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Titre de l'image actuelle */}
+      <motion.div
+        key={`title-${currentIndex}`}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.5 }}
+        className="text-center mt-4"
+      >
+        <span className="text-sm text-muted-foreground font-medium">
+          {carouselImages[currentIndex].title}
+        </span>
+      </motion.div>
+    </div>
+  )
 }
 
 export function HeroSection() {
@@ -145,22 +237,7 @@ export function HeroSection() {
                 aria-hidden
                 className="bg-gradient-to-b to-background absolute inset-0 z-10 from-transparent from-35%"
               />
-              <div className="inset-shadow-2xs ring-background dark:inset-shadow-white/20 bg-background relative mx-auto max-w-6xl overflow-hidden rounded-xl sm:rounded-2xl border border-miwa-teal/20 p-2 sm:p-4 shadow-lg shadow-miwa-blue/10 ring-1">
-                <img
-                  className="bg-background aspect-[15/8] relative hidden rounded-xl sm:rounded-2xl dark:block w-full"
-                  src="dashboard.jpg"
-                  alt="Tableau de bord présentant les analyses et la gestion des utilisateurs"
-                  width="2700"
-                  height="1440"
-                />
-                <img
-                  className="z-2 border-miwa-teal/25 aspect-[15/8] relative rounded-xl sm:rounded-2xl border dark:hidden w-full"
-                  src="dashboard.jpg"
-                  alt="Tableau de bord présentant les analyses et la gestion des utilisateurs"
-                  width="2700"
-                  height="1440"
-                />
-              </div>
+              <ImageCarousel />
             </div>
           </AnimatedGroup>
         </div>
